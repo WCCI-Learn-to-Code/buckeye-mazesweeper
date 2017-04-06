@@ -1,0 +1,5 @@
+# Sublime
+*.sublime-workspace
+
+# slidy template stuff
+*.w3c.html
