@@ -12,7 +12,7 @@
 # Examples
 
 ## Animation
-<iframe src="./examples/circles/index.html" style="max-height: 40rem;">No frame support</iframe>
+<iframe src="./examples/circles/index.html" style="background-color: #ffffff; width: 80rem; height: 30rem;">No frame support</iframe>
 
 ## Showing up in places we never expected
 

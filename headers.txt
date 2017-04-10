@@ -1,4 +1,4 @@
-author: Brian Forsythe<br /><img id="logo" src="images/wcci-logo.png" />
+author: Lauren Holloway & Brian Forsythe<br /><img id="logo" src="images/wcci-logo.png" />
 title: Buckeye MazeSweeper
 subtitle: Learn to Code: JavaScript
 theme: league
