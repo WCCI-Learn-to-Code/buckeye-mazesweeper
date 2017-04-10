@@ -1,24 +1,187 @@
 
 
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-US">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="" />
-<meta name="author"    content="" />
-<meta name="copyright" content="" />
-<meta name="duration"  content="20" />
+<!doctype html>
+<html lang="en">
 
-<title></title>
+	<head>
+		<meta charset="utf-8">
 
-<link rel="stylesheet" href="styles/slidy.css" type="text/css" />
-<script src="scripts/slidy.js" charset="utf-8" type="text/javascript"></script>
-</head>
-<body>
+		<title>Buckeye MazeSweeper - Learn to Code: JavaScript</title>
+
+		<meta name="description" content="- description not found -">
+		<meta name="author"      content="Brian Forsythe<br /><img id="logo" src="images/wcci-logo.png" />">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/league.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Buckeye MazeSweeper</h1>
+					<h3>Learn to Code: JavaScript</h3>
+					<p>
+						<small>by Brian Forsythe<br /><img id="logo" src="images/wcci-logo.png" /></small>
+					</p>
+				</section>
+
+        
+        <section>
+          
+<!-- _S9SLIDE_ -->
+<h1 id="what-can-javascript-do">What can JavaScript do?</h1>
+
+<h3 class="fragment">Originally created to support dynamic web pages</h3>
+
+<ul>
+	<li class="fragment">interacting with the user<br />(clicks, keypresses, prompts)</li>
+	<li class="fragment">adding, removing, altering page elements<br />(manipulating the <strong>D</strong>ocument <strong>O</strong>bject <strong>M</strong>odel)</li>
+</ul>
+
+<p class="fragment">It is ubiquitous today, one of the most popular programming languages.</p>
 
 
 
-</body>
+        </section>
+        
+        <section>
+          <!-- _S9SLIDE_ -->
+<h1 id="examples">Examples</h1>
+
+
+
+        </section>
+        
+        <section>
+          <!-- _S9SLIDE_ -->
+<h2 id="animation">Animation</h2>
+<iframe src="./examples/circles/index.html" style="max-height: 40rem;">No frame support</iframe>
+
+
+
+        </section>
+        
+        <section>
+          <!-- _S9SLIDE_ -->
+<h2 id="showing-up-in-places-we-never-expected">Showing up in places we never expected</h2>
+
+<div class="fragment">
+<h3>Outside of the browser</h3>
+
+<img alt="Node.js" src="images/nodejs-logo.svg" style="max-height: 16rem; padding: 2rem;" />
+<p><a href="https://nodejs.org">https://nodejs.org</a></p>
+</div>
+
+
+
+        </section>
+        
+        <section>
+          <!-- _S9SLIDE_ -->
+<h2 id="internet-of-things-iot">Internet of Things (IoT)</h2>
+
+<div style="float: left; width: 20rem;">
+<img src="images/arduino-led.gif" alt="Arduino" />
+</div>
+
+<div class="fragment">
+	<div style="float: right; width: 20rem;">
+		<img src="images/johnny-five.png" alt="Johnny-Five" />
+	</div>
+	<div style="clear: right; float: right;">
+		<h3>Like Johnny-Five!</h3>
+		<p><a href="http://johnny-five.io" target="_blank">http://johnny-five.io</a></p>
+	</div>
+</div>
+
+
+
+        </section>
+        
+        <section>
+          <!-- _S9SLIDE_ -->
+<h1 id="this-is-javascript">This is JavaScript</h1>
+
+<pre><code class="language-js">$(function() {
+	$(".notVisited").click(function(event) {
+		$(event.target).removeClass("notVisited");
+		$(event.target).addClass("path");
+	})
+});
+</code></pre>
+<style type="text/css">
+.reveal h1, .reveal h2,
+.reveal h3, .reveal h4,
+.reveal h5, .reveal h6 {
+	text-transform: none;
+}
+
+img#logo {
+	border: 0px;
+	background-color: transparent;
+	box-shadow: unset;
+	margin-top: 2rem;
+}
+</style>
+
+
+        </section>
+        
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
 </html>
