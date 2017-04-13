@@ -1,3 +1,7 @@
+author: Lauren Holloway & Brian Forsythe<br /><img id="logo" src="images/wcci-logo.png" />
+title: Buckeye MazeSweeper
+subtitle: Learn to Code: JavaScript
+theme: league
 # What can JavaScript do?
 
 <h3 class="fragment">Originally created to support dynamic web pages</h3>
@@ -89,3 +93,17 @@ $(function() {
 	})
 });
 ```
+<style type="text/css">
+.reveal h1, .reveal h2,
+.reveal h3, .reveal h4,
+.reveal h5, .reveal h6 {
+	text-transform: none;
+}
+
+img#logo {
+	border: 0px;
+	background-color: transparent;
+	box-shadow: unset;
+	margin-top: 2rem;
+}
+</style>

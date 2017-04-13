@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width = device-width, initial-scale = 1, minimum-scale = 1, maximum-scale = 1, user-scalable = no">
+
+    <script type="text/javascript" src="./index_files/cgscenegraph_1.4.2.min.js"></script>
+
+    <script type="text/javascript" src="./index_files/globals.js"></script>
+    <script type="text/javascript" src="./index_files/sprite.live.js"></script>
+    <script type="text/javascript" src="./index_files/sprite.sun.js"></script>
+    <script type="text/javascript" src="./index_files/sprite.stars.js"></script>
+    <script type="text/javascript" src="./index_files/node.sky.js"></script>
+    <script type="text/javascript" src="./index_files/node.floor.js"></script>
+    <script type="text/javascript" src="./index_files/sprite.Button.js"></script>
+    <script type="text/javascript" src="./index_files/sprite.flower.js"></script>
+    <script type="text/javascript" src="./index_files/sprite.cloud.js"></script>
+    <script type="text/javascript" src="./index_files/sprite.bee.js"></script>
+    <script type="text/javascript" src="./index_files/node.livePanel.js"></script>
+    <script type="text/javascript" src="./index_files/node.scorePanel.js"></script>
+    <script type="text/javascript" src="./index_files/state.about.js"></script>
+    <script type="text/javascript" src="./index_files/state.home.js"></script>
+    <script type="text/javascript" src="./index_files/state.loading.js"></script>
+    <script type="text/javascript" src="./index_files/state.game.run.js"></script>
+    <script type="text/javascript" src="./index_files/class.main.js"></script>
+
+</head>
+
+<body style="margin: 0px; overflow: hidden;">
+
+<canvas id="scene" width="480" height="320">
+    Your browser does not support the canvas element.
+</canvas>
+
+
+<script type="text/javascript">
+    var canvasScene = document.getElementById("scene");
+    var game = new CGMain(canvasScene);
+</script>

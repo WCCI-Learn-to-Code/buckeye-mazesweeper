@@ -1,0 +1,56 @@
+:root {
+	--calculator-color: #34047E;
+	--key-color: #34047E;
+	--key-shadow-color: #5F389D;
+	--key-text-color: #F2F5DB;
+}
+
+body {
+	background-color: #eee;
+}
+
+#calculator {
+	width: 17.6rem;
+	display: table;
+	padding: 1em;
+	border-radius: 0.4rem;
+	background-color: var(--calculator-color);
+	margin: 1em auto;
+}
+
+#display, .key {
+	border-radius: 0.4rem;
+	margin: 0.2rem;
+	height: 2.4rem;
+	box-shadow: 0 0 0 0.15em var(--key-shadow-color);
+}
+
+#display {
+	text-align: right;
+	width: 17.2rem;
+	padding: 0.3rem;
+	margin-bottom: 0.3rem;
+	color: #34047E;
+	background-color: #eee;
+	border: solid 0.1rem var(--key-color);
+}
+
+.key {
+	float: left;
+	width: 4rem;
+	text-align: center;
+	color: var(--key-text-color);
+	background-color: var(--key-color);
+	display: flex;
+	justify-content: center; /* align horizontal */
+	align-items: center; /* align vertical */
+}
+
+.doubleHigh {
+	height: 5.2rem;
+	float: right;
+}
+
+.doubleWide {
+	width: 8.4rem;
+}
