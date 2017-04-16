@@ -7,8 +7,8 @@ beforeEach(() => {
 });
 
 test('indicate 0 on init', () => {
-		expectDisplayToRead("0");
-	});
+	expectDisplayToRead("0");
+});
 
 describe('indicate the numeral(s) pressed', () => {
 	test('when a single numeral is pressed', () => {
@@ -70,6 +70,19 @@ describe('show the result of', () => {
 
 		expectDisplayToRead(expected);
 	};
+});
+
+describe('should use previous result as lval', () => {
+	test('when = is pressed after first operation', () => {
+		pressKeys(3, "*", 5, "=", "-", 4, "=");
+
+		expectDisplayToRead("11");
+	});
+	test('when = is NOT pressed after first operation', () => {
+		pressKeys(3, "*", 5, "-", 4, "=");
+
+		expectDisplayToRead("11");
+	});
 });
 
 function pressKeys() {

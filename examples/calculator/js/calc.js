@@ -10,11 +10,15 @@ function create() {
 		press: function(pressed) {
 
 			if(pressed == "=") {
-				operation(lval, displayed);
+				performOperation();
 				return;
 			}
 
 			if(isNaN(pressed)) {
+				if(operationPending) {
+					performOperation();
+				}
+
 				lval = displayed;
 				operationPending = true;
 				operation = operationFor(pressed);
@@ -30,6 +34,11 @@ function create() {
 
 	function operationFor(operator) {
 		return (lval, rval) => ( displayed = eval("" + lval + operator + rval));
+	}
+
+	function performOperation() {
+		operation(lval, displayed);
+		operationPending = false;
 	}
 }
 
