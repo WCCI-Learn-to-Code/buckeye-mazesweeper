@@ -1,13 +1,15 @@
 function create() {
 	var displayed = 0;
 
-	var operationPending = false;
-	var operation;
-
 	var operationsByOperator = {
 		"+": function() { displayed = 11 },
-		"-": function() { displayed = 5 }
+		"-": function() { displayed = 5 },
+		"*": function() { displayed = 24 },
+		"/": function() { displayed = 4 }
 	}
+
+	var operationPending = false;
+	var operation;
 
 	return {
 		display: function() { return "" + displayed; },

@@ -44,10 +44,16 @@ describe('show the result of', () => {
 	test('subtraction', () => {
 		testOperation(9, "-", 4, 5);
 	});
+	test('multiplication', () => {
+		testOperation(8, "*", 3, 24);
+	});
+	test('division', () => {
+		testOperation(12, "/", 3, 4);
+	});
 
 	function testOperation(lval, operator, rval, expected) {
 
-		[].concat(lvals, operator, rval, "=").forEach((key) => underTest.press(key));
+		[].concat(lval, operator, rval, "=").forEach((key) => underTest.press(key));
 
 		expectDisplayToRead("" + expected);
 	};
