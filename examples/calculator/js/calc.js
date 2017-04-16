@@ -1,6 +1,12 @@
 function create() {
+	var displayed = "0";
+
 	return {
-		display: function() { return "0"; }
+		display: function() { return displayed; },
+		press: function(pressed) {
+			displayed = (displayed == "0"? "": displayed);
+			displayed += pressed;
+		}
 	};
 }
 
