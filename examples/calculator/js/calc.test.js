@@ -45,6 +45,14 @@ describe('show the result of', () => {
 
 		expectDisplayToRead("11");
 	});
+	test('subtraction', () => {
+		underTest.press(8);
+		underTest.press("-");
+		underTest.press(3);
+		underTest.press("=");
+
+		expectDisplayToRead("5");
+	});
 });
 
 function expectDisplayToRead(expected) {
