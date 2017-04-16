@@ -37,6 +37,7 @@ describe('indicate the numeral(s) pressed', () => {
 });
 
 describe('show the result of', () => {
+
 	test('addition', () => {
 		testOperation(8, "+", 3, 11);
 	});
@@ -45,10 +46,8 @@ describe('show the result of', () => {
 	});
 
 	function testOperation(lval, operator, rval, expected) {
-		underTest.press(lval);
-		underTest.press(operator);
-		underTest.press(rval);
-		underTest.press("=");
+
+		[].concat(lvals, operator, rval, "=").forEach((key) => underTest.press(key));
 
 		expectDisplayToRead("" + expected);
 	};
