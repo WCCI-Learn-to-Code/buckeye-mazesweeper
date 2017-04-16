@@ -38,8 +38,16 @@ describe('indicate the numeral(s) pressed', () => {
 
 describe('show the result of', () => {
 
-	test('addition', () => {
-		testOperation(8, "+", 3, 11);
+	describe('addition', () => {
+		test('8 + 3 = 11', () => {
+			testOperation(8, "+", 3, 11);
+		});
+		test('9 + 3 = 12', () => {
+			testOperation(9, "+", 3, 12);
+		});
+		test('8 + 3 = 12', () => {
+			testOperation(8, "+", 4, 12);
+		});
 	});
 	test('subtraction', () => {
 		testOperation(9, "-", 4, 5);
