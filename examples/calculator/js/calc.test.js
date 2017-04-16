@@ -49,8 +49,13 @@ describe('show the result of', () => {
 			testOperation(8, "+", 4, 12);
 		});
 	});
-	test('subtraction', () => {
-		testOperation(9, "-", 4, 5);
+	describe('subtraction', () => {
+		test('9 - 4 = 5', () => {
+			testOperation(9, "-", 4, 5);
+		});
+		test('4 - 9 = -5', () => {
+			testOperation(4, "-", 9, -5);
+		});
 	});
 	test('multiplication', () => {
 		testOperation(8, "*", 3, 24);

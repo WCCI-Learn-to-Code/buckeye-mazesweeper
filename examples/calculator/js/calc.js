@@ -3,7 +3,7 @@ function create() {
 
 	var operationsByOperator = {
 		"+": function(lval, rval) { displayed = lval + rval },
-		"-": function() { displayed = 5 },
+		"-": function(lval, rval) { displayed = lval - rval },
 		"*": function() { displayed = 24 },
 		"/": function() { displayed = 4 }
 	}
