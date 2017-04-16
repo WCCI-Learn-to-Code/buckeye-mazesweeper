@@ -66,12 +66,16 @@ describe('show the result of', () => {
 
 	function testOperation(lval, operator, rval, expected) {
 
-		[].concat(lval, operator, rval, "=").forEach((key) => underTest.press(key));
+		pressKeys(lval, operator, rval, "=");
 
-		expectDisplayToRead("" + expected);
+		expectDisplayToRead(expected);
 	};
 });
 
+function pressKeys() {
+	[...arguments].forEach(underTest.press);
+}
+
 function expectDisplayToRead(expected) {
-	expect(underTest.display()).toBe(expected);
+	expect(underTest.display()).toBe("" + expected);
 }
