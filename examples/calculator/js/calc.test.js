@@ -38,21 +38,20 @@ describe('indicate the numeral(s) pressed', () => {
 
 describe('show the result of', () => {
 	test('addition', () => {
-		underTest.press(8);
-		underTest.press("+");
-		underTest.press(3);
-		underTest.press("=");
-
-		expectDisplayToRead("11");
+		testOperation(8, "+", 3, 11);
 	});
 	test('subtraction', () => {
-		underTest.press(8);
-		underTest.press("-");
-		underTest.press(3);
+		testOperation(9, "-", 4, 5);
+	});
+
+	function testOperation(lval, operator, rval, expected) {
+		underTest.press(lval);
+		underTest.press(operator);
+		underTest.press(rval);
 		underTest.press("=");
 
-		expectDisplayToRead("5");
-	});
+		expectDisplayToRead("" + expected);
+	};
 });
 
 function expectDisplayToRead(expected) {
