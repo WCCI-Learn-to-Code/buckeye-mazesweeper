@@ -147,6 +147,8 @@ var myChart = new Chart(ctx, {
 
 <p><em>Wow, that’s meta.</em></p>
 
+<p><small><a href="https://github.com/WCCI-Learn-to-Code/buckeye-mazesweeper">https://github.com/WCCI-Learn-to-Code/buckeye-mazesweeper</a></small></p>
+
 
 
         </section>
@@ -190,15 +192,243 @@ var myChart = new Chart(ctx, {
         
         <section>
           <!-- _S9SLIDE_ -->
-<h1 id="this-is-javascript">This is JavaScript</h1>
+<h1 id="on-with-the-show">On With the Show!</h1>
 
-<pre><code class="language-js">$(function() {
-	$(".notVisited").click(function(event) {
-		$(event.target).removeClass("notVisited");
-		$(event.target).addClass("path");
-	})
-});
+
+
+        </section>
+        
+        <section>
+          <!-- _S9SLIDE_ -->
+<h2 id="demo">Demo</h2>
+
+
+
+        </section>
+        
+        <section>
+          <!-- _S9SLIDE_ -->
+<h2 id="create-your-own">Create Your Own</h2>
+
+<p>Open <a href="http://codepen.io/pen?template=mWgGwe">http://codepen.io/pen?template=mWgGwe</a> in your browser.</p>
+
+
+
+        </section>
+        
+        <section>
+          <!-- _S9SLIDE_ -->
+<h2 id="lets-set-our-goals">Let’s Set Our Goals</h2>
+
+<ul>
+  <li>Reveal the background image as correct spaces are clicked.</li>
+  <li>Require that spaces are clicked in the correct order.</li>
+  <li>Remove a retry (football) when an incorrect space is clicked.</li>
+  <li>Display “Game Over” message when there are no retries remaining.</li>
+  <li><em>Bonus:</em> Reset the game when “Start” is clicked.</li>
+</ul>
+
+
+
+        </section>
+        
+        <section>
+          <!-- _S9SLIDE_ -->
+<h1 id="lets-write-javascript">Let’s Write JavaScript!</h1>
+
+<p>We write JavaScript in our CodePen’s <strong>JS</strong> pane.</p>
+
+<p>First, let’s write a function to indicate the first correct space.</p>
+
+<pre><code class="language-js">// This function shows the first correct space
+function firstSpace(space) {
+	space.className = 'path';
+}
 </code></pre>
+
+
+
+        </section>
+        
+        <section>
+          <!-- _S9SLIDE_ -->
+<h2 id="lets-choose-a-first-space">Let’s Choose a First Space</h2>
+
+<p>In the <strong>HTML</strong> pane, choose a first block from row 6.</p>
+
+<p>I choose row 6, column 4 (<em>r6c4</em>).</p>
+
+<pre><code class="language-html">&lt;div class="row"&gt;
+  &lt;div class="col grid"&gt;&lt;div id="r6c1" class="notVisited"&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class="col grid"&gt;&lt;div id="r6c2" class="notVisited"&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class="col grid"&gt;&lt;div id="r6c3" class="notVisited"&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class="col grid"&gt;&lt;div id="r6c4" class="notVisited" onclick="firstSpace(this)"&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class="col grid"&gt;&lt;div id="r6c5" class="notVisited"&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+
+
+        </section>
+        
+        <section>
+          <!-- _S9SLIDE_ -->
+<h2 id="space-identifiers">Space Identifiers</h2>
+
+<div style="float: left; height: 30rem;"><img src="images/rows-and-columns.png" alt="rows and columns" /></div>
+
+<p>Row 1, Column 1:</p>
+
+<div style="float: right; width: 10em;"><small><code class="language-html hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"r1c1"</span> …</span></code></small></div>
+
+<p>Row 6, Column 5:</p>
+
+<div style="float: right; width: 10em;"><small><code class="language-html hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"r6c5"</span> …</span></code></small></div>
+
+<p>Row 4, Column 2:</p>
+
+<div style="float: right; width: 10em;"><small><code class="language-html hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"r4c2"</span> …</span></code></small></div>
+
+
+
+        </section>
+        
+        <section>
+          <!-- _S9SLIDE_ -->
+<h2 id="lets-choose-the-next-correct-spaces">Let’s Choose the Next Correct Spaces</h2>
+
+<p>Write the function to mark the next space(s):</p>
+
+<pre><code class="language-js">//This function will show the next correct space
+function nextSpace(previousId, currentSpace) {
+	var previousSpace = document.getElementById(previousId);
+	var previousClassName = previousSpace.className;
+	
+	if(previousClassName == "path") {
+		currentSpace.className = "path";
+	}
+}
+</code></pre>
+
+
+
+        </section>
+        
+        <section>
+          <!-- _S9SLIDE_ -->
+<h2 id="lets-choose-the-next-correct-spaces-1">Let’s Choose the Next Correct Spaces</h2>
+
+<p>Now, let’s mark the correct spaces. In this example, the user must click <em>r6c4</em> (the first space), then <em>r5c4</em>:</p>
+
+<pre><code class="language-html">&lt;div id="r5c4" class="notVisited" onclick="nextSpace('r6c4', this)"&gt;&lt;/div&gt;
+</code></pre>
+
+<p>then <em>r5c3</em>:</p>
+
+<pre><code class="language-html">&lt;div id="r5c3" class="notVisited" onclick="nextSpace('r5c4', this)"&gt;&lt;/div&gt;
+</code></pre>
+
+<p>Now create the rest of your path!</p>
+
+
+
+        </section>
+        
+        <section>
+          <!-- _S9SLIDE_ -->
+<h2 id="lets-track-retries">Let’s Track Retries</h2>
+
+<p>Add this to your JavaScript. This is how we will track the remaining number of retries:</p>
+
+<pre><code class="language-js">//We will need a counter for the 8 retries (footballs)
+var retries = 8;
+</code></pre>
+
+
+        </section>
+        
+        <section>
+          <!-- _S9SLIDE_ -->
+<h2 id="clicking-the-wrong-space">Clicking the Wrong Space</h2>
+
+<p>Let’s write the function that will be called when the wrong space is clicked.</p>
+
+<pre><code class="language-js">//This function is for removing a retry when the wrong space is clicked
+function wrongSpace() {
+	retries = retries - 1;
+	
+	// hide the football
+	var footballId = "retry-" + retries;
+	var football = document.getElementById(footballId);
+	football.style.display = "none";
+	
+	resetSpaces();
+	
+	if(retries == 0) {
+		// Game over!
+		var gameOverElement = document.getElementById("gameOver");
+		gameOverElement.style.display = "inline";
+		// Say "Start" instead of "Go Bucks!"
+		document.getElementById("start").innerHTML = "Start";
+	}
+}
+</code></pre>
+
+
+
+        </section>
+        
+        <section>
+          <!-- _S9SLIDE_ -->
+<h2 id="clicking-the-wrong-space-1">Clicking the Wrong Space</h2>
+
+<p>Now let’s add that to the spaces.</p>
+
+<pre><code class="language-html">&lt;div id="r1c1" class="notVisited" onclick="wrongSpace()"&gt;
+</code></pre>
+
+<pre><code class="language-html">&lt;div id="r1c2" class="notVisited" onclick="wrongSpace()"&gt;
+</code></pre>
+
+<p>And so on…</p>
+
+
+
+        </section>
+        
+        <section>
+          <!-- _S9SLIDE_ -->
+<h2 id="bonus">Bonus!</h2>
+
+<h3 id="reset-the-game-when-start-is-clicked">Reset the Game When Start Is Clicked</h3>
+
+<pre><code class="language-js">// This function will reset the game
+function resetGame() {
+	resetSpaces();
+	resetRetries();
+	
+	document.getElementById("start").innerHTML = "Go Bucks!";
+	
+	var gameOverElement = document.getElementById("gameOver");
+	gameOverElement.style.display = "none";
+}
+</code></pre>
+
+<pre><code class="language-html">&lt;div id="gameOver" class="col grid endZone" onclick="resetGame()"&gt;
+	&lt;h1&gt;Game Over&lt;/h1&gt;
+	&lt;h3&gt;Press Start to Reset&lt;/h3&gt;
+&lt;/div&gt;
+</code></pre>
+
+
+
+        </section>
+        
+        <section>
+          <!-- _S9SLIDE_ -->
+<h2 id="thank-you">Thank You!</h2>
+
+<p>Reach me at <a href="mailto:brian@wecancodeit.org">brian@wecancodeit.org</a></p>
 <style type="text/css">
 .reveal h1, .reveal h2,
 .reveal h3, .reveal h4,
@@ -211,6 +441,15 @@ img#logo {
 	background-color: transparent;
 	box-shadow: unset;
 	margin-top: 2rem;
+}
+
+h2#lets-choose-a-first-space ~ pre,
+h2#lets-choose-the-next-correct-spaces-1 ~ pre {
+	font-size: 1rem;
+}
+
+h2#clicking-the-wrong-space ~ pre {
+	font-size: 1.1rem;
 }
 </style>
 

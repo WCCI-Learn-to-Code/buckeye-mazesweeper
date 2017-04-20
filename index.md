@@ -54,6 +54,8 @@ var myChart = new Chart(ctx, {
 
 *Wow, that's meta.*
 
+<small><a href="https://github.com/WCCI-Learn-to-Code/buckeye-mazesweeper">https://github.com/WCCI-Learn-to-Code/buckeye-mazesweeper</a></small>
+
 ## Showing up in places we never expected
 
 <div class="fragment">
@@ -79,13 +81,173 @@ var myChart = new Chart(ctx, {
 	</div>
 </div>
 
-# This is JavaScript
+# On With the Show!
+
+## Demo
+
+## Create Your Own
+
+Open <a href="http://codepen.io/pen?template=mWgGwe">http://codepen.io/pen?template=mWgGwe</a> in your browser.
+
+## Let's Set Our Goals
+
+- Reveal the background image as correct spaces are clicked.
+- Require that spaces are clicked in the correct order.
+- Remove a retry (football) when an incorrect space is clicked.
+- Display "Game Over" message when there are no retries remaining.
+- *Bonus:* Reset the game when "Start" is clicked.
+
+# Let's Write JavaScript!
+
+We write JavaScript in our CodePen's **JS** pane.
+
+First, let's write a function to indicate the first correct space.
 
 ```js
-$(function() {
-	$(".notVisited").click(function(event) {
-		$(event.target).removeClass("notVisited");
-		$(event.target).addClass("path");
-	})
-});
+// This function shows the first correct space
+function firstSpace(space) {
+	space.className = 'path';
+}
 ```
+
+## Let's Choose a First Space
+
+In the **HTML** pane, choose a first block from row 6.
+
+I choose row 6, column 4 (*r6c4*).
+
+```html
+<div class="row">
+  <div class="col grid"><div id="r6c1" class="notVisited"></div></div>
+  <div class="col grid"><div id="r6c2" class="notVisited"></div></div>
+  <div class="col grid"><div id="r6c3" class="notVisited"></div></div>
+  <div class="col grid"><div id="r6c4" class="notVisited" onclick="firstSpace(this)"></div></div>
+  <div class="col grid"><div id="r6c5" class="notVisited"></div></div>
+</div>
+```
+
+## Space Identifiers
+
+<div style="float: left; height: 30rem;"><img src="images/rows-and-columns.png" alt="rows and columns"/></div>
+
+Row 1, Column 1:
+
+<div style="float: right; width: 10em;"><small><code class="language-html hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"r1c1"</span> …</span></code></small></div>
+
+Row 6, Column 5:
+
+<div style="float: right; width: 10em;"><small><code class="language-html hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"r6c5"</span> …</span></code></small></div>
+
+Row 4, Column 2:
+
+<div style="float: right; width: 10em;"><small><code class="language-html hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"r4c2"</span> …</span></code></small></div>
+
+## Let's Choose the Next Correct Spaces
+
+Write the function to mark the next space(s):
+
+```js
+//This function will show the next correct space
+function nextSpace(previousId, currentSpace) {
+	var previousSpace = document.getElementById(previousId);
+	var previousClassName = previousSpace.className;
+	
+	if(previousClassName == "path") {
+		currentSpace.className = "path";
+	}
+}
+```
+
+## Let's Choose the Next Correct Spaces
+
+Now, let's mark the correct spaces. In this example, the user must click *r6c4* (the first space), then *r5c4*:
+
+```html
+<div id="r5c4" class="notVisited" onclick="nextSpace('r6c4', this)"></div>
+```
+
+then *r5c3*:
+
+```html
+<div id="r5c3" class="notVisited" onclick="nextSpace('r5c4', this)"></div>
+```
+
+Now create the rest of your path!
+
+## Let's Track Retries
+
+Add this to your JavaScript. This is how we will track the remaining number of retries:
+
+```js
+//We will need a counter for the 8 retries (footballs)
+var retries = 8;
+```
+## Clicking the Wrong Space
+
+Let's write the function that will be called when the wrong space is clicked.
+
+```js
+//This function is for removing a retry when the wrong space is clicked
+function wrongSpace() {
+	retries = retries - 1;
+	
+	// hide the football
+	var footballId = "retry-" + retries;
+	var football = document.getElementById(footballId);
+	football.style.display = "none";
+	
+	resetSpaces();
+	
+	if(retries == 0) {
+		// Game over!
+		var gameOverElement = document.getElementById("gameOver");
+		gameOverElement.style.display = "inline";
+		// Say "Start" instead of "Go Bucks!"
+		document.getElementById("start").innerHTML = "Start";
+	}
+}
+```
+
+## Clicking the Wrong Space
+
+Now let's add that to the spaces.
+
+```html
+<div id="r1c1" class="notVisited" onclick="wrongSpace()">
+```
+
+```html
+<div id="r1c2" class="notVisited" onclick="wrongSpace()">
+```
+
+And so on...
+
+## Bonus!
+
+### Reset the Game When Start Is Clicked
+
+```js
+// This function will reset the game
+function resetGame() {
+	resetSpaces();
+	resetRetries();
+	
+	document.getElementById("start").innerHTML = "Go Bucks!";
+	
+	var gameOverElement = document.getElementById("gameOver");
+	gameOverElement.style.display = "none";
+}
+```
+
+```html
+<div id="gameOver" class="col grid endZone" onclick="resetGame()">
+	<h1>Game Over</h1>
+	<h3>Press Start to Reset</h3>
+</div>
+```
+
+## Thank You!
+
+
+
+Reach me at [brian@wecancodeit.org](mailto:brian@wecancodeit.org)

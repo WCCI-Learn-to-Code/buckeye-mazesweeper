@@ -9,20 +9,22 @@ body {
 	background-color: #eee;
 }
 
+#calculator, #display, .key {
+	border-radius: 0.4rem;
+	box-shadow: 0.1rem 0 0 0.15em var(--key-shadow-color);
+}
+
 #calculator {
 	width: 17.6rem;
 	display: table;
 	padding: 1em;
-	border-radius: 0.4rem;
 	background-color: var(--calculator-color);
 	margin: 1em auto;
 }
 
 #display, .key {
-	border-radius: 0.4rem;
 	margin: 0.2rem;
 	height: 2.4rem;
-	box-shadow: 0 0 0 0.15em var(--key-shadow-color);
 }
 
 #display {
